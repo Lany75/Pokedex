@@ -1,4 +1,3 @@
-let pokemon;
 
 fetch('https://pokeapi.co/api/v2/pokemon/')
 .then(function(reponse) {
@@ -39,19 +38,15 @@ function recherchePokemon(data) {
     }
 
     if (input.value === '') {
-        alert('entrez le nom d\'un pokemon');
+        alert('ce pokemon n\'est pas dans la liste');
     } else {
         for (let i=0; i<data.length; i++) {
             if (data[i].name === input.value) {
                 afficheName(data[i].name);
                 afficheImage(data[i].url);
                 afficheType(data[i].url);
-                //break;
-                
             }
-            //console.log('ce pokemon n\'existe pas');
         }
-        //alert('ce pokemon n\'existe pas');
     }
     input.value = '';
 }
@@ -74,16 +69,9 @@ function listePokemon (data) {
 
         for(let i=0; i<divsName.length; i++) {
             divsName[i].classList.remove('nameActive');
-            /*divsName[i].style.backgroundColor = '#ffffff';
-            divsName[i].style.fontSize = '20px';
-            divsName[i].style.border = '';*/
         }
 
         divName.classList.add('nameActive');
-
-        /*divName.style.backgroundColor = '#ff6347';
-        divName.style.fontSize = '30px';
-        divName.style.border = '2px solid';*/
     });
 }
 
@@ -92,10 +80,6 @@ function afficheName (name) {
     pokeName.textContent = name;
 
     pokeName.classList.add('nameActive');
-
-    /*pokeName.style.backgroundColor = '#ff6347';
-    pokeName.style.fontSize = '30px';
-    pokeName.style.border = '2px solid';*/
 }
 
 function afficheImage(url) {
